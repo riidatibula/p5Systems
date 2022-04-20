@@ -20,6 +20,7 @@ function setup() {
 function draw() {
     // testLines()
     drawOutline()
+    simpleLines()
 }
 
 function drawOutline() {
@@ -57,11 +58,24 @@ function testLines() {
     pop()
 }
 
-function getRandomPalette() {
-    return PALETTE[floor(
-        getRandomNumber(0, PALETTE.length))]
-}
+function simpleLines() {
+    const stepsOut = 8
+    const numSteps = getRandomNumber(0, 2) ? stepsOut : floor(stepsOut * 1.25)
+    const step = (CRYSTAL_SIZE / 2) / numSteps
+    const start = getRandomNumber(0, numSteps)
+    const stop = getRandomNumber(start, numSteps + 1)
 
-function getRandomNumber(min, max) {
-    return floor(random(min, max))
+    let numShapes = getRandomNumber(0, 2) ? SIDES : SIDES*2
+    let angle = 360 / numShapes
+        
+    noFill()
+    stroke(getRandomPalette())
+
+    push()
+        translate(width/2, height/2)
+        for ( let i = 0; i < numShapes; i++ ) {
+            line(start * step, 0, stop * step, 0)
+            rotate(angle)    
+        }
+    pop()
 }
