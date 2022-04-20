@@ -1,8 +1,8 @@
-const ART_SIZE = 460
+const ART_SIZE = 750
 let PALETTE = []
 
 function setup() {
-    createCanvas(500, 500, SVG)
+    createCanvas(800, 800, SVG)
 
     PALETTE = [
         color(255, 52, 154),
@@ -22,7 +22,8 @@ function draw() {
     push()
         translate(width/2, height/2)
         // tripleCircle(0, 0, 100, PALETTE)
-        tripleEquiTriangle(0, 0, 100, PALETTE)
+        // tripleEquiTriangle(0, 0, 100, PALETTE)
+        denseCircle(0, 0, 300)
     pop()
 }
 

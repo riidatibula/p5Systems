@@ -1,9 +1,9 @@
-const CRYSTAL_SIZE = 500
+const CRYSTAL_SIZE = 650
 const SIDES = 6
 let PALETTE = []
 
 function setup() {
-    createCanvas(530, 530, SVG)
+    createCanvas(700, 700, SVG)
 
     PALETTE = [
         color(255, 52, 154),

@@ -8,12 +8,6 @@ function hexagon (posX, posY, radius) {
     endShape(CLOSE)
 }
 
-function pointOnCircle (posX, posY, radius, angle) {         
-    const x = posX + radius * cos(angle)
-    const y = posY + radius * sin(angle)
-    return createVector(x, y)
-}
-
 function equiTriangle(posX, posY, height, color) {
     color ? fill(color) : noFill()
 
@@ -41,6 +35,34 @@ function tripleCircle(posX, posY, diameter, palette) {
         palette ? fill(getRandomPalette(palette)): noFill()
         circle(posX, posY, diameter)
     }
+}
+
+function denseCircle(posX, posY, diameter, palette) {
+    palette ? fill(getRandomPalette(palette)): noFill()
+    const radius = diameter / 2
+
+    circle(posX, posY, diameter)
+
+    fill('red')
+    stroke('#f5b342')
+    strokeWeight(0.4)
+    for (i = 0; i < 1500; i++) {
+        const vertex1 = pointOnCircle(
+            posX, posY,
+            radius-1,
+            random(1, 361))
+        const vertex2 = pointOnCircle(
+            posX, posY,
+            random(1, radius),
+            random(1, 361))
+        line(vertex1.x, vertex1.y, vertex2.x, vertex2.y)
+    }
+}
+
+function pointOnCircle (posX, posY, radius, angle) {
+    const x = posX + radius * cos(angle)
+    const y = posY + radius * sin(angle)
+    return createVector(x, y)
 }
 
 function getRandomPalette(palette) {
