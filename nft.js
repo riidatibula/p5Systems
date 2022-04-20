@@ -21,7 +21,7 @@ function draw() {
 
     push()
         translate(width/2, height/2)
-        trippleEquiTriangle(0, 0, 100)
+        tripleEquiTriangle(0, 0, 100)
     pop()
 }
 

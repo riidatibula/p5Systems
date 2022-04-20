@@ -23,7 +23,7 @@ function equiTriangle(posX, posY, height, background) {
     triangle(p1[0], p1[1], p2[0], p2[1], p3[0], p3[1])
 }
 
-function trippleEquiTriangle(posX, posY, height) {
+function tripleEquiTriangle(posX, posY, height) {
     let weight = height / 3
 
     for (; height > 0; height-=weight ) {
