@@ -31,7 +31,7 @@ function draw() {
     for (j = 1; j <= ver_circles; j++) {
         for (i = 1; i <= hoz_circles; i++) {
             push()
-                tripleCircle(x*i, y*j, circle_size, PALETTE, true)
+                nestedCircles(x*i, y*j, circle_size, 6, PALETTE, true)
             pop()
         }
     }

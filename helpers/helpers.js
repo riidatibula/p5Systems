@@ -28,8 +28,8 @@ function tripleEquiTriangle(posX, posY, height, palette) {
     }
 }
 
-function tripleCircle(posX, posY, diameter, palette, random) {
-    let weight = diameter / 3
+function nestedCircles(posX, posY, diameter, nest, palette, random) {
+    let weight = diameter / nest
     let i = 0
 
     for (;diameter > 0; diameter-=weight, i++) {

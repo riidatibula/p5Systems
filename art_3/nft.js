@@ -5,19 +5,12 @@ let PALETTE = []
 function setup() {
     createCanvas(CANVAS_SIZE, CANVAS_SIZE, SVG)
 
-    PALETTE_LIST = [
-        [
-            '#033f63',
-            '#28666e',
-            '#7c9885',
-            'grey'
-        ],
-        [
-            'grey',
-            '#ee6c4d',
-            '#fb8500',
-            '#293241',
-        ]
+    PALETTE = [
+        '#003049',
+        '#d62828',
+        '#f77f00',
+        '#fcbf49',
+        '#eae2b7'
     ]
 
     noLoop()
@@ -38,15 +31,14 @@ function draw() {
     for (j = 1; j <= ver_circles; j++) {
         for (i = 1; i <= hoz_circles; i++) {
             push()
-                nestedCircles(x*i, y*j, circle_size, 4, PALETTE_LIST[i%2], false)
+                nestedCircles(x*i, y*j, circle_size, 4, PALETTE, true)
             pop()
         }
-        PALETTE_LIST.reverse()
     }
 }
 
 function drawOutline() {
-    fill('teal')
+    fill('#395B64')
     strokeWeight(1)
     push()
         translate(width/2, height/2)
