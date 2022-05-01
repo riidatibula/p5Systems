@@ -42,6 +42,25 @@ function nestedCircles(posX, posY, diameter, nest, palette, random) {
     }
 }
 
+function nestedRect(posX, posY, width, length, nest, palette, random) {
+    // random - check if the pallete should be in random order
+    // pallete - the actual pallete
+
+    let width_weight = width / nest
+    let length_weight = length / nest
+
+    for (k = 0; k < nest; k++) {
+        if (palette) {
+            random ? fill(getRandomPalette(palette)): fill(palette[i])
+        } else {
+            noFill()
+        }
+        rect(posX, posY, width, length)
+        width-=width_weight
+        length-=length_weight
+    }
+}
+
 function denseCircle(posX, posY, diameter, palette) {
     palette ? fill(getRandomPalette(palette)): noFill()
     const radius = diameter / 2
@@ -77,4 +96,9 @@ function getRandomPalette(palette) {
 
 function getRandomNumber(min, max) {
     return floor(random(min, max))
+}
+
+//shuffles the elements of an array
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
 }

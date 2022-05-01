@@ -20,28 +20,34 @@ function setup() {
 
 function draw() {
     drawOutline()
+    strokeWeight(1)
 
-    const circle_size = 50
-    const hoz_circles = ART_SIZE / circle_size
-    const ver_circles = ART_SIZE / circle_size
+    let square_width_list = [50, 70, 100, 130, 170, 230]
+    let square_height = 50
+    let x = (width-ART_SIZE) / 2
+    let y = (width-ART_SIZE) / 2 + (square_height/2)
 
-    let x = ((width-ART_SIZE)/2) + (circle_size/2)
-    let y = ((width-ART_SIZE)/2) + (circle_size/2)
-
-    for (j = 1; j <= ver_circles; j++) {
-        for (i = 1; i <= hoz_circles; i++) {
+    for (j = 0; j < 15; j++) {
+        square_width_list = shuffle(square_width_list)
+        for (i = 0; i < 6; i++) {
+            let square_width = square_width_list[i]
+            x+= square_width / 2
             push()
-                nestedCircles(x*i, y*j, circle_size, 4, PALETTE, true)
+                nestedRect(x, y, square_width,
+                    square_height, 5, PALETTE, true)
             pop()
+            x = x + (square_width / 2)
         }
+        x = (width-ART_SIZE) / 2
+        y+= square_height
     }
 }
 
 function drawOutline() {
-    fill('#395B64')
-    strokeWeight(1)
+    // fill('#395B64')
+    strokeWeight(10)
     push()
         translate(width/2, height/2)
-        rect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
+        rect(0, 0, ART_SIZE, ART_SIZE)
     pop()
 }

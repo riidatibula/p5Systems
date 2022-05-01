@@ -27,6 +27,7 @@ function setup() {
 
 function draw() {
     drawOutline()
+    strokeWeight(1)
 
     const circle_size = 50
     const hoz_circles = ART_SIZE / circle_size
@@ -46,10 +47,10 @@ function draw() {
 }
 
 function drawOutline() {
-    fill('teal')
-    strokeWeight(1)
+    fill('#395B64')
+    strokeWeight(5)
     push()
         translate(width/2, height/2)
-        rect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
+        rect(0, 0, ART_SIZE+5, ART_SIZE+5)
     pop()
 }
