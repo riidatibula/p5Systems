@@ -1,8 +1,9 @@
 const ART_SIZE = 750
+const CANVAS_SIZE = 800
 let PALETTE = []
 
 function setup() {
-    createCanvas(800, 800, SVG)
+    createCanvas(CANVAS_SIZE, CANVAS_SIZE, SVG)
 
     PALETTE = [
         '#003049',
@@ -18,10 +19,7 @@ function setup() {
 }
 
 function draw() {
-
-    fill('#00296b')
-    // drawOutline()
-    noStroke()
+    drawOutline()
 
     const circle_size = 50
     const hoz_circles = ART_SIZE / circle_size
@@ -40,9 +38,10 @@ function draw() {
 }
 
 function drawOutline() {
+    fill('#395B64')
     strokeWeight(1)
     push()
         translate(width/2, height/2)
-        rect(0, 0, ART_SIZE, ART_SIZE)
+        rect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
     pop()
 }
