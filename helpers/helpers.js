@@ -28,11 +28,16 @@ function tripleEquiTriangle(posX, posY, height, palette) {
     }
 }
 
-function tripleCircle(posX, posY, diameter, palette) {
+function tripleCircle(posX, posY, diameter, palette, random) {
     let weight = diameter / 3
+    let i = 0
 
-    for (; diameter > 0; diameter-=weight ) {
-        palette ? fill(getRandomPalette(palette)): noFill()
+    for (;diameter > 0; diameter-=weight, i++) {
+        if (palette) {
+            random ? fill(getRandomPalette(palette)): fill(palette[i])
+        } else {
+            noFill()
+        }
         circle(posX, posY, diameter)
     }
 }
