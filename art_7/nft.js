@@ -20,20 +20,21 @@ function setup() {
 
 function draw() {
     drawOutline()
-    noStroke()
-
-    for (i = 0; i < 500; i++) {
-        let x = getRandomNumber(25, 775)
-        let y = getRandomNumber(25, 775)
-        let palette = color(getRandomPalette(PALETTE))
-        palette.setAlpha(100)
-        fill(palette)
-        circle(x, y, 50)
-    }
-
+    drawBubbles()
     drawFrame()
 }
 
+function drawBubbles() {
+    noStroke()
+    for (i = 0; i < 1000; i++) {
+        let x = getRandomNumber(25, 775)
+        let y = getRandomNumber(25, 775)
+        let palette = color(getRandomPalette(PALETTE))
+        palette.setAlpha(50)
+        fill(palette)
+        circle(x, y, 5)
+    }
+}
 
 function drawFrame() {
     rectMode(CORNER)
@@ -49,13 +50,9 @@ function drawFrame() {
 }
 
 function drawOutline() {
-    push()        
+    push()
+        noStroke()
         translate(width/2, height/2)
-        rect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
-    pop()
-
-    push()        
-        translate(width/2, height/2)
-        rect(0, 0, ART_SIZE, ART_SIZE)
+        nestedRect(0, 0, ART_SIZE, ART_SIZE, 30, PALETTE, true)
     pop()    
 }
