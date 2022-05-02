@@ -1,4 +1,4 @@
-const ART_SIZE = 600
+const ART_SIZE = 750
 const CANVAS_SIZE = 800
 let PALETTE = []
 
@@ -32,7 +32,7 @@ function draw() {
     for (j = 1; j <= verHex; j++) {
         for (i = 1; i <= hozHex; i++) {
             push()
-                hexagon(x, y, hexRadius, PALETTE)
+                ergoHex(x, y, hexRadius, PALETTE)
                 x+=hexSize
             pop()
         }
@@ -42,10 +42,10 @@ function draw() {
 }
 
 function drawOutline() {
-    noStroke()
     push()
+        strokeWeight(3)
         fill('#395B64')
         translate(width/2, height/2)
-        rect(0, 0, CANVAS_SIZE-50, CANVAS_SIZE-50)
+        rect(0, 0, ART_SIZE+2, ART_SIZE)
     pop()
 }

@@ -1,5 +1,5 @@
 function hexagon (posX, posY, radius, palette) {
-    let color = palette ? fill(getRandomPalette(palette)): noFill()             
+    palette ? fill(getRandomPalette(palette)): noFill()
     const rotAngle = 360 / 6
 
     beginShape()
@@ -10,13 +10,36 @@ function hexagon (posX, posY, radius, palette) {
     endShape(CLOSE)
 }
 
-function ergoHex (posX, posY, radius) {                     
+function ergoHex (posX, posY, radius, palette) {
+    palette ? fill(getRandomPalette(palette)): noFill()                     
     const rotAngle = 360 / 6
+
     beginShape()
     for (let i = 0; i < 6; i++) {
         const thisVertex = pointOnCircle(posX, posY, radius, i * rotAngle)
         vertex(thisVertex.x, thisVertex.y)
     }
+    endShape(CLOSE)
+
+    beginShape(LINES)
+        stroke('black')
+        strokeWeight(1)
+        const vertex1 = pointOnCircle(posX, posY, radius, 300)
+        const vertex2 = pointOnCircle(posX, posY, radius, 240)
+        const vertex3 = pointOnCircle(posX, posY, radius, 120)
+        const vertex4 = pointOnCircle(posX, posY, radius, 60)
+
+        vertex(vertex1.x, vertex1.y)
+        vertex(vertex2.x, vertex2.y)
+
+        vertex(vertex2.x, vertex2.y)
+        vertex(posX, posY)
+
+        vertex(vertex3.x, vertex3.y)
+        vertex(posX, posY)
+
+        vertex(vertex4.x, vertex4.y)
+        vertex(vertex3.x, vertex3.y)
     endShape(CLOSE)
 }
 

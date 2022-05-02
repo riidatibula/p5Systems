@@ -51,6 +51,6 @@ function drawOutline() {
     strokeWeight(3)
     push()
         translate(width/2, height/2)
-        rect(0, 0, ART_SIZE+5, ART_SIZE+5)
+        rect(0, 0, ART_SIZE+3, ART_SIZE+3)
     pop()
 }
