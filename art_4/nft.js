@@ -43,18 +43,10 @@ function draw() {
 }
 
 function drawOutline() {
-    
     noStroke()
-    // strokeWeight(1)
-    push()
-        fill('#293241')
-        translate(width/2, height/2)
-        rect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
-    pop()
-
     push()
         fill('#395B64')
         translate(width/2, height/2)
-        rect(0, 0, CANVAS_SIZE-25, CANVAS_SIZE-25)
+        rect(0, 0, CANVAS_SIZE-50, CANVAS_SIZE-50)
     pop()
 }
