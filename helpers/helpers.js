@@ -97,7 +97,7 @@ function nestedRect(posX, posY, width, length, nest, palette, random) {
 }
 
 function denseCircle(posX, posY, diameter, palette) {
-    palette ? fill(getRandomPalette(palette)): noFill()
+    palette ? fill(getRandomPalette(palette)) : noFill()
     const radius = diameter / 2
 
     circle(posX, posY, diameter)
@@ -116,6 +116,40 @@ function denseCircle(posX, posY, diameter, palette) {
             random(1, 361))
         line(vertex1.x, vertex1.y, vertex2.x, vertex2.y)
     }
+}
+
+function denseRect(posX, posY, width, length, palette) {
+    let x1 = posX - (width / 2)
+    let y1 = posY - (length / 2)
+    let x2 = x1
+    let y2 = y1
+    let max_x = posX + (width / 2)
+    let max_y = posY + (length / 2)
+
+    while (x1 < max_x) {
+        palette ? stroke(getRandomPalette(palette)) : noStroke()
+        y1 < max_y ? y1+=5 : x1+=5
+        x2 < max_x ? x2+=5 : y2+=5
+        line(x1, y1, x2, y2)
+    }
+}
+
+function makeCloud(posX, posY) {
+    fill(250)
+    noStroke()
+    ellipse(posX, posY, 60, 50);
+    ellipse(posX + 30, posY - 10, 60, 50);
+    ellipse(posX + 80, posY, 60, 50);
+    ellipse(posX + 20, posY + 20, 60, 50);
+    ellipse(posX + 60, posY + 15, 60, 50);
+}
+
+function makeCloud2(posX, posY) {
+    fill(250)
+    noStroke()
+    ellipse(posX, posY, 70, 50)
+    ellipse(posX + 10, posY + 10, 70, 50)
+    ellipse(posX - 20, posY + 10, 70, 50)
 }
 
 function pointOnCircle (posX, posY, radius, angle) {
