@@ -61,9 +61,9 @@ function drawWater() {
         line(x1, y1, x2, y2)
         length-=shortening_factor
         x1+=shortening_factor
-        y1+=6
+        y1+=9
         x2-=shortening_factor
-        y2+=6
+        y2+=9
     }
 }
 
