@@ -48,7 +48,7 @@ function draw() {
 
 function drawOutline() {
     fill('#395B64')
-    strokeWeight(5)
+    strokeWeight(3)
     push()
         translate(width/2, height/2)
         rect(0, 0, ART_SIZE+5, ART_SIZE+5)

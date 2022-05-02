@@ -1,4 +1,16 @@
-function hexagon (posX, posY, radius) {                     
+function hexagon (posX, posY, radius, palette) {
+    let color = palette ? fill(getRandomPalette(palette)): noFill()             
+    const rotAngle = 360 / 6
+
+    beginShape()
+    for (let i = 0; i < 6; i++) {
+        const thisVertex = pointOnCircle(posX, posY, radius, i * rotAngle)
+        vertex(thisVertex.x, thisVertex.y)
+    }
+    endShape(CLOSE)
+}
+
+function ergoHex (posX, posY, radius) {                     
     const rotAngle = 360 / 6
     beginShape()
     for (let i = 0; i < 6; i++) {
