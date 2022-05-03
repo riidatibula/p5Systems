@@ -152,6 +152,42 @@ function makeCloud2(posX, posY) {
     ellipse(posX - 20, posY + 10, 70, 50)
 }
 
+function frontFacingPerson(posX, posY, bodyLength) {
+    let bodyRaduis = bodyLength / 2
+    let bodyWidth = bodyLength
+
+    //draw body
+    rect(posX, posY, bodyLength, bodyWidth, 5)
+
+    //draw neck
+    let neckLength = bodyLength / 2.5
+    let nectWidth = neckLength / 1.3
+    let neckY = posY - bodyRaduis - (neckLength / 2)
+    rect(posX, neckY, nectWidth, neckLength)
+
+    //draw head
+    let headLength = neckLength * 2.5
+    let headWidth = headLength / 1.5
+    let headY = neckY - (neckLength / 2) - (headLength / 2) + 2
+    ellipse(posX, headY, headWidth, headLength)
+
+    //draw hip
+    let hipWidth = bodyLength - 10
+    let hipLength = bodyWidth / 3
+    let hipY = posY + bodyRaduis + (hipLength / 2)
+    rect(posX, hipY, hipWidth, hipLength, 3)
+
+    // draw legs  
+    let legLength = bodyLength * 2
+    let legWidth = hipWidth * (5/6)
+    let legY = hipY + (hipLength / 2) + (legLength / 2)
+    rect(posX, legY, legWidth, legLength, 2)
+    line(posX, legY-(legLength / 2), posX, legY+(legLength / 2))
+
+    // draw shoes
+
+}
+
 function pointOnCircle (posX, posY, radius, angle) {
     const x = posX + radius * cos(angle)
     const y = posY + radius * sin(angle)
