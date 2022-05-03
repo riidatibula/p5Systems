@@ -6,11 +6,8 @@ function setup() {
     createCanvas(CANVAS_SIZE, CANVAS_SIZE, SVG)
 
     PALETTE = [
-        '#003049',
-        '#d62828',
-        '#f77f00',
-        '#fcbf49',
-        '#eae2b7'
+        '#7897AB',
+        // '#7897AB'
     ]
 
     noLoop()
@@ -21,11 +18,38 @@ function setup() {
 function draw() {
     drawOutline()
 
-    push()
-        translate(width/2, height/2)
-        frontFacingPerson(0, 0, 50)
-    pop()    
+    background('#655D8A')
+    noStroke()
+
+    let cicleColor = color('#D885A3')
+    // cicleColor.setAlpha(50)
     
+
+    // let size = 50
+    // let length = 10
+    let count = 3
+
+    for (j = 0; j < 100; j++){
+        let x = random(0, ART_SIZE)
+        let y = random(0, ART_SIZE)
+
+        let size = random (10, 50)
+        let length = size / 5
+        
+        fill(cicleColor)
+        circle(x, y, size)
+
+        let decorColor = color(getRandomPalette(PALETTE))
+        decorColor.setAlpha(90)
+        fill(decorColor)
+
+        for (i = 0; i < count; i++) {
+            let vertex = pointOnCircle(x, y, size/2, random(0, 360))
+            ellipse(vertex.x, vertex.y, size, length)
+        }
+    }
+
+    drawFrame(ART_SIZE, CANVAS_SIZE)  
 }
 
 function drawOutline() {

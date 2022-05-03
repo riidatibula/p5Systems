@@ -21,7 +21,7 @@ function setup() {
 function draw() {
     drawOutline()
     drawBubbles()
-    drawFrame()
+    drawFrame(ART_SIZE, CANVAS_SIZE)
 }
 
 function drawBubbles() {
@@ -34,19 +34,6 @@ function drawBubbles() {
         fill(palette)
         circle(x, y, 5)
     }
-}
-
-function drawFrame() {
-    rectMode(CORNER)
-    fill('#fffff')
-
-    push()
-        noStroke()
-        rect(0, 0, 25, CANVAS_SIZE)
-        rect(0, 0, CANVAS_SIZE, 25)
-        rect(0, CANVAS_SIZE-25, CANVAS_SIZE, 25)
-        rect(CANVAS_SIZE-25, 0, 25, CANVAS_SIZE)
-    pop()
 }
 
 function drawOutline() {

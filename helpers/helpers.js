@@ -188,6 +188,33 @@ function frontFacingPerson(posX, posY, bodyLength) {
 
 }
 
+function makeBatik(posX, posY, width, length, count) {
+    fill('grey')
+    noStroke()
+    noSmooth()
+    circle(posX, posY, width)
+
+    for (i = 0; i < count; i++) {
+        let vertex = pointOnCircle(posX, posY, width/2, random(0, 360))
+        ellipse(vertex.x, vertex.y, width, length)
+    }
+}
+
+//Removes ovelapping design
+function drawFrame(ART_SIZE, CANVAS_SIZE) {
+    var diff = CANVAS_SIZE - ART_SIZE
+    rectMode(CORNER)
+    fill('#fffff')
+
+    push()
+        noStroke()
+        rect(0, 0, diff, CANVAS_SIZE)
+        rect(0, 0, CANVAS_SIZE, diff)
+        rect(0, CANVAS_SIZE-diff, CANVAS_SIZE, diff)
+        rect(CANVAS_SIZE-diff, 0, diff, CANVAS_SIZE)
+    pop()
+}
+
 function pointOnCircle (posX, posY, radius, angle) {
     const x = posX + radius * cos(angle)
     const y = posY + radius * sin(angle)
