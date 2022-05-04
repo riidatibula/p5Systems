@@ -63,13 +63,13 @@ function tripleEquiTriangle(posX, posY, height, palette) {
     }
 }
 
-function nestedCircles(posX, posY, diameter, nest, palette, random) {
+function nestedCircles(posX, posY, diameter, nest, palette, isRandomPalette) {
     let weight = diameter / nest
     let i = 0
 
     for (;diameter > 0; diameter-=weight, i++) {
         if (palette) {
-            random ? fill(getRandomPalette(palette)): fill(palette[i])
+            isRandomPalette ? fill(getRandomPalette(palette)): fill(palette[i])
         } else {
             noFill()
         }
@@ -117,22 +117,13 @@ function nestedRect(posX, posY, width, length, nest, palette, random) {
 function denseCircle(posX, posY, diameter, palette) {
     palette ? fill(getRandomPalette(palette)) : noFill()
     const radius = diameter / 2
-
     circle(posX, posY, diameter)
+    strokeWeight(0.5)
 
-    fill('red')
-    stroke('#f5b342')
-    strokeWeight(0.4)
-    for (i = 0; i < 1500; i++) {
+    for (i = 0; i < 360; i++) {
         const vertex1 = pointOnCircle(
-            posX, posY,
-            radius-1,
-            random(1, 361))
-        const vertex2 = pointOnCircle(
-            posX, posY,
-            random(1, radius),
-            random(1, 361))
-        line(vertex1.x, vertex1.y, vertex2.x, vertex2.y)
+            posX, posY, radius, i)
+        line(vertex1.x, vertex1.y, posX, posY)
     }
 }
 
