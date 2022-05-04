@@ -77,6 +77,24 @@ function nestedCircles(posX, posY, diameter, nest, palette, random) {
     }
 }
 
+function stripedCircle(posX, posY, diameter, palette, division) {
+    palette ? fill(getRandomPalette(palette)) : noFill()
+    let weight =  180 / division
+    circle(posX, posY, diameter)
+
+    for (angle=180+weight; angle < 360; angle+=weight) {
+        let vertex1 = pointOnCircle(posX, posY, diameter/2, angle)
+        let vertex2 = pointOnCircle(posX, posY, diameter/2, 360-angle)
+        line(vertex1.x, vertex1.y, vertex2.x, vertex2.y)
+    }
+
+    for (angle2=270-weight; angle2 > 90; angle2-=weight) {
+        let vertex1 = pointOnCircle(posX, posY, diameter/2, angle2)
+        let vertex2 = pointOnCircle(posX, posY, diameter/2, 540-angle2)
+        line(vertex1.x, vertex1.y, vertex2.x, vertex2.y)
+    }
+}
+
 function nestedRect(posX, posY, width, length, nest, palette, random) {
     // random - check if the pallete should be in random order
     // pallete - the actual pallete
